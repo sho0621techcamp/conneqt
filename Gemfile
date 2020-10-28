@@ -31,6 +31,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'gimei'
 end
 
 group :development do
@@ -56,3 +60,13 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'pry-rails'
+group :development do
+  gem 'rubocop', require: false
+end
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+gem 'devise', '4.7.2'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
