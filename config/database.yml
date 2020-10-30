@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: conneqt_production
-  username: conneqt
-  password: <%= ENV['CONNEQT_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
