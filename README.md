@@ -3,14 +3,14 @@
 
 ## Users テーブル
 
-| Column                 | Type      | Options                          |
-| ---------------------- | --------- | -------------------------------- |
-| nickname               | string    | null: false                      |
-| email                  | string    | null: false                      |
-| password               | string    | null: false                      |
-| introduction           | text      | null: false                      |
-| github_account         | text      |                                  |
-| lang_tag_id            | integer   | null: false, foreign_key: true   |
+| Column                 | Type         | Options                          |
+| ---------------------- | ------------ | -------------------------------- |
+| nickname               | string       | null: false                      |
+| email                  | string       | null: false                      |
+| password               | string       | null: false                      |
+| introduction           | text         | null: false                      |
+| github_account         | text         |                                  |
+| lang_tag               | references   | null: false, foreign_key: true   |
 
 ### Association
 
@@ -30,7 +30,7 @@
 | password               | string      | null: false                      |
 | tutor_introduction     | text        | null: false                      |
 | github_account         | text        |                                  |
-| lang_tag_id            | references  | null: false, foreign_key: true   |
+| lang_tag               | references  | null: false, foreign_key: true   |
 
 ## Association
 
