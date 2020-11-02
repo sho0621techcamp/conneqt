@@ -1,27 +1,27 @@
-<header class="top-page-header">
+  <header class="top-page-header">
     <nav class="navbar">
-      <%= link_to image_tag("logo.png", class:"header-logo ml-4 w-100"), "/" %>
-
+      <%= link_to image_tag("white-logo.png", class:"header-logo w-50"), "/" %>
       <div class="header-list">
         <ul class="nav">
           <li class="nav-item">
             <%= link_to 'ABOUT', page_path('about'), class:"nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'チューター募集！', "#", class:"nav-link" %>
+            <%= link_to 'チューター募集！', new_tutor_registration_path, class:"nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to  "チューターログイン", "#", class:"nav-link "%>
+            <%= link_to  "チューターログイン", new_tutor_session_path, class:"nav-link "%>
           </li>
         </ul>
       </div>
       <div class="d-flex flex-row-reverse bd-highlight">
         <div class="login-button mr-5">
-          <button type="button" class="btn btn-outline-light btn-md ">ログイン</button>
+          <button type="button" class="btn btn-outline-light btn-md "><%= link_to 'ログイン', new_user_session_path, class:"login" %></button>
         </div>
         <div class="sign-up-button mr-4">
-          <button type="button" class="btn btn-outline-light btn-md">新規登録</button>
+          <button type="button" class="btn btn-outline-light btn-md"><%= link_to '新規登録', new_user_registration_path, class:"sign_up"%></button>
         </div>
       </div>
+     </div>
     </nav>
-</header>
+ </header>

@@ -1,7 +1,17 @@
+.login {
+  color: #fff;
+}
+
+.sign_up {
+  color: #fff;
+}
+
 .navbar {
   background-color: #1c465e;
   height: 15vh;
 }
+
+
 
 .nav-link {
   color: #fff;
