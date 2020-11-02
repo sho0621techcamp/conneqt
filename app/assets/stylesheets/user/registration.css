@@ -62,6 +62,17 @@
   height: 30px;
 }
 
+.dispensable {
+  background: lightslategray;
+  margin-left: 8px;
+  padding: 8px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  height: 30px;
+}
+
 .input-default {
   width: 100%;
   margin-top: 5px;
@@ -70,6 +81,15 @@
   border-radius: 4px;
   border: 1px solid #ccc;
   background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+
+.intro-text {
+  width: 100%;
+  padding: 90px 90px 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
   font-size: 16px;
   resize: none;
 }

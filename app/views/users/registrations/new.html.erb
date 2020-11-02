@@ -20,6 +20,14 @@
 
   <div class="form-group">
     <div class='form-text-wrap'>
+      <label class="form-text">自己紹介</label>
+      <span class="dispensable">任意</span>
+    </div>
+    <%= f.text_area :introduction, class:"intro-text", id:"introduction" %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
       <label class="form-text">メールアドレス</label>
       <span class="indispensable">必須</span>
     </div>
@@ -41,6 +49,22 @@
       <span class="indispensable">必須</span>
     </div>
     <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">学習中の言語</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.select :tag, {'HTML&CSS': 1, 'JavaScript': 2, 'Ruby': 3, 'Java': 4, 'PHP': 5, 'Python': 6, 'Swift': 7, 'Kotlin': 8, 'その他': 9}, { include_blank: '-----'}, { class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">GitHubアカウント</label>
+      <span class="dispensable">任意</span>
+    </div>
+    <%= f.url_field :github_account, class:"input-default" %>
   </div>
 
   <div class="form-group">

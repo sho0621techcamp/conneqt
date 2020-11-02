@@ -80,3 +80,4 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 gem 'high_voltage'
+gem 'active_hash'
