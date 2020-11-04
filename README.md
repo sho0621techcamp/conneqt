@@ -100,7 +100,7 @@
 | star         | integer    | null: false                    |
 | user         | references |              foreign_key: true |
 | tutor        | references |              foreign_key: true |
-| message      | references | null: false, foreign_key: true |
+| message      | references |              foreign_key: true |
 
 ### Association
 

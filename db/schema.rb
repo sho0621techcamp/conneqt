@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_033542) do
+ActiveRecord::Schema.define(version: 2020_11_04_082928) do
+
+  create_table "lang_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "star", null: false
+    t.bigint "user_id"
+    t.bigint "tutor_id"
+    t.bigint "messages_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["messages_id"], name: "index_lang_tags_on_messages_id"
+    t.index ["tutor_id"], name: "index_lang_tags_on_tutor_id"
+    t.index ["user_id"], name: "index_lang_tags_on_user_id"
+  end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "issue_title", null: false
@@ -34,7 +46,9 @@ ActiveRecord::Schema.define(version: 2020_10_29_033542) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "lang_tag_id", null: false
     t.index ["email"], name: "index_tutors_on_email", unique: true
+    t.index ["lang_tag_id"], name: "index_tutors_on_lang_tag_id"
     t.index ["reset_password_token"], name: "index_tutors_on_reset_password_token", unique: true
   end
 
@@ -49,10 +63,15 @@ ActiveRecord::Schema.define(version: 2020_10_29_033542) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "tag_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lang_tags", "messages", column: "messages_id"
+  add_foreign_key "lang_tags", "tutors"
+  add_foreign_key "lang_tags", "users"
   add_foreign_key "messages", "tutors"
   add_foreign_key "messages", "users"
+  add_foreign_key "tutors", "lang_tags"
 end
