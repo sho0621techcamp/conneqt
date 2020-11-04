@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_082928) do
+ActiveRecord::Schema.define(version: 2020_11_04_115248) do
 
   create_table "lang_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "star", null: false
@@ -25,14 +25,9 @@ ActiveRecord::Schema.define(version: 2020_11_04_082928) do
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "issue_title", null: false
-    t.text "issue_text", null: false
-    t.bigint "user_id"
-    t.bigint "tutor_id"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tutor_id"], name: "index_messages_on_tutor_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "tutors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,7 +66,5 @@ ActiveRecord::Schema.define(version: 2020_11_04_082928) do
   add_foreign_key "lang_tags", "messages", column: "messages_id"
   add_foreign_key "lang_tags", "tutors"
   add_foreign_key "lang_tags", "users"
-  add_foreign_key "messages", "tutors"
-  add_foreign_key "messages", "users"
   add_foreign_key "tutors", "lang_tags"
 end
