@@ -4,4 +4,5 @@ class Tutor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :lang_tags
+  has_one_attached :image
 end
