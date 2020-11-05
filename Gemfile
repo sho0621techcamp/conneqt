@@ -81,5 +81,6 @@ group :production do
 end
 gem 'high_voltage'
 gem 'select2-rails'
-gem 'active_hash'
+gem 'seed-fu'
 gem 'aws-sdk-s3', require: false
+gem 'active_hash'
