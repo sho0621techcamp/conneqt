@@ -12,7 +12,6 @@ class TutorsController < ApplicationController
   end
 
   def create
-    binding.pry
     @tutor = Tutor.create(tutor_params)
     if @tutor.save
       redirect_to root_path
