@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_014101) do
+ActiveRecord::Schema.define(version: 2020_11_09_082727) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -37,15 +37,6 @@ ActiveRecord::Schema.define(version: 2020_11_10_014101) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "tutor_id", null: false
-    t.index ["tutor_id"], name: "index_messages_on_tutor_id"
-  end
-
-  create_table "tag_tutors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "tutor_id", null: false
-    t.bigint "tag_id", null: false
-    t.index ["tag_id"], name: "index_tags_tutors_on_tag_id"
-    t.index ["tutor_id"], name: "index_tags_tutors_on_tutor_id"
   end
 
   create_table "tag_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,6 +50,13 @@ ActiveRecord::Schema.define(version: 2020_11_10_014101) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags_tutors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "tutor_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["tag_id"], name: "index_tags_tutors_on_tag_id"
+    t.index ["tutor_id"], name: "index_tags_tutors_on_tutor_id"
   end
 
   create_table "tutors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,8 +85,8 @@ ActiveRecord::Schema.define(version: 2020_11_10_014101) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "tag_tutors", "tags"
-  add_foreign_key "tag_tutors", "tutors"
   add_foreign_key "tag_users", "tags"
   add_foreign_key "tag_users", "users"
+  add_foreign_key "tags_tutors", "tags"
+  add_foreign_key "tags_tutors", "tutors"
 end
