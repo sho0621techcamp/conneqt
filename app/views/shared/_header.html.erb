@@ -7,17 +7,22 @@
             <%= link_to 'ABOUT', page_path('about'), class:"nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'チューター募集！', new_tutor_registration_path, class:"nav-link" %>
+            <%= link_to 'チューター募集！', new_tutor_path, class:"nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to  "チューターログイン", new_tutor_session_path, class:"nav-link "%>
+            <%= link_to  "チューターログイン", login_path, class:"nav-link "%>
           </li>
         </ul>
       </div>
       <div class="d-flex flex-row-reverse bd-highlight">
         <% if user_signed_in? %>
-          <button type="button" class="btn btn-outline-light btn-md "><%= link_to current_user.nickname, "#", class: "user-nickname"%></button>
-          <button type="button" class="btn btn-outline-light btn-md "><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%></button>
+          <%= link_to current_user.nickname, "#", class: "text-white mr-5 mt-2"%>
+          <button type="button" class="btn btn-outline-light btn-md mr-4"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "text-white"%></button>
+
+        <% elsif logged_in? %>
+          <%= link_to current_tutor.tutor_name, "#", class: "text-white mr-5 mt-2"%>
+          <button type="button" class="btn btn-outline-light btn-md mr-4"><%= link_to 'ログアウト', logout_path, method: :delete, class: "text-white"%></button>
+
         <% else %>
         <div class="login-button mr-5">
           <button type="button" class="btn btn-outline-light btn-md "><%= link_to 'ログイン', new_user_session_path, class:"login" %></button>
