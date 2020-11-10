@@ -1,29 +1,36 @@
-div class="main">
+<%= render  "shared/second-header" %>
+
+<div class="main">
   <div class="inner">
-    <div class="user__wrapper">
-      <h2 class="page-heading">
-        <%= "#{@tutor.tutor_name}さん"%>
-      </h2>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th class="table__col1">名前</th>
-            <td class="table__col2"><%= @tutor.tutor_name %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">自己紹介</th>
-            <td class="table__col2"><%= @tutor.tutor_introduction %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">得意な言語</th>
-            <td class="table__col2"><%= @tutor %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">GitHubアカウント</th>
-            <td class="table__col2"><%= @user.github_account %></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="tutor__wrapper">
+      <h2 class="page-heading text-center mb-5"><%= "#{@tutor.tutor_name} さん" %></h2>
+        <div class="container">
+          <div class="text-center">
+            <%= image_tag @tutor.image %>
+          </div>
+          <table class="table mt-5"> 
+            <tbody>
+              <tr>
+                <th class="table__col1">名前</th>
+                <td class="table__col2"><%= @tutor.tutor_name %></td>
+              </tr>
+              <tr>
+                <th class="table__col1">自己紹介</th>
+                <td class="table__col2"><%= @tutor.tutor_introduction %></td>
+              </tr>
+              <tr>
+                <th class="table__col1">得意な言語</th>
+                <td class="table__col2"></td>
+              </tr>
+              <tr>
+                <th class="table__col1">GitHubアカウント</th>
+                <td class="table__col2"><%= link_to "#{@tutor.github_account}",  "#{@tutor.github_account}" %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
     </div>
   </div>
 </div>
+
+<%= render  "shared/second-footer" %>

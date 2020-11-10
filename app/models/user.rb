@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one_attached :image
-  has_and_belongs_to_many :tags
+  has_many :tag_users
+  has_many :tags, through: :tag_users
 end
