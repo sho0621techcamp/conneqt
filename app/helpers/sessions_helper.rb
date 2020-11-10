@@ -4,9 +4,7 @@ module SessionsHelper
   end
 
   def current_tutor
-    if session[:tutor_id]
-      @current_tutor ||= Tutor.find_by(id: session[:tutor_id])
-    end
+    @current_tutor ||= Tutor.find_by(id: session[:tutor_id]) if session[:tutor_id]
   end
 
   def current_tutor?(tutor)
@@ -21,5 +19,4 @@ module SessionsHelper
     session.delete(:tutor_id)
     @current_tutor = nil
   end
-
 end

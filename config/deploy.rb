@@ -5,17 +5,17 @@ lock '3.14.1'
 set :application, 'conneqt'
 
 # どのリポジトリからアプリをpullするかを指定する
-set :repo_url,  'git@github.com:sho0621techcamp/conneqt.git'
+set :repo_url, 'git@github.com:sho0621techcamp/conneqt.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.6.5' #カリキュラム通りに進めた場合、’2.6.5’ です
+set :rbenv_ruby, '2.6.5' # カリキュラム通りに進めた場合、’2.6.5’ です
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
-                                  keys: ['~/.ssh/conneqt.pem'] 
+                  keys: ['~/.ssh/conneqt.pem']
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
