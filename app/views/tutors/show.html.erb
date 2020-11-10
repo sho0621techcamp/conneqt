@@ -20,7 +20,11 @@
               </tr>
               <tr>
                 <th class="table__col1">得意な言語</th>
-                <td class="table__col2"></td>
+                <td class="table__col2">
+                  <% @tutor.tags.each do |tag| %>
+                    <div class="badge badge-primary badge-font-size-20px mr-4" id="tag-badge"><%= "#""#{tag.name}" %></div>
+                  <% end %>  
+                </td>
               </tr>
               <tr>
                 <th class="table__col1">GitHubアカウント</th>

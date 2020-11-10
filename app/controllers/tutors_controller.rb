@@ -20,8 +20,9 @@ class TutorsController < ApplicationController
       render :new
     end
   end
+
   private
   def tutor_params
-    params.require(:tutor).permit(:image, :tutor_name, :email, :password, :password_confirmation, :tutor_introduction, :github_account, { tag_ids: [] })
+    params.require(:tutor).permit(:image, :tutor_name, :email, :password, :password_confirmation, :tutor_introduction, :github_account, { tag_ids: [] }).merge(tutor_id: current_tutor.id)
   end
 end
