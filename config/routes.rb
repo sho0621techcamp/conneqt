@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount ActionCable.server => '/cable'
   devise_for :users
   get     '/login',   to: 'sessions#new'
   post    '/login',   to: 'sessions#create'
@@ -7,5 +6,4 @@ Rails.application.routes.draw do
   root to: 'tutors#index'
   resources :tutors
   resources :messages
-  resources :room, only: :show
 end

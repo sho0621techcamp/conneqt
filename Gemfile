@@ -83,4 +83,5 @@ gem 'active_hash'
 gem 'aws-sdk-s3', require: false
 gem 'high_voltage'
 gem 'seed-fu'
+gem "jquery-turbolinks"
 gem 'select2-rails'

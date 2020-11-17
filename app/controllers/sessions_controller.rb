@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new
+  end
 
   def create
     tutor = Tutor.find_by(email: params[:email].downcase)
