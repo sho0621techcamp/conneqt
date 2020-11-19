@@ -1,16 +1,11 @@
-<div class="room-header">
-  <%= render "shared/second-header" %>
-</div>
-  <div class="chat-page">
-    <div class="messages" id ="messages">
-      <% @messages.each do |message| %>
-        <p class="message-content"><%= message.content %></p>
-      <% end %>
+<%= render "shared/header" %>
+  <div class="main-container">
+    <div class="message-content">
+      <div id ="messages">
+        <%= render @messages %>
+      </div>
     </div>
-    <%= form_with model: @message do |f| %>
-      <%= f.text_field :content, class:"message-text", id:"message_text"%>
-      <%= f.submit '送信' %>
-    <% end %>
+      <input type="text" id="message_input" data_user="<%=current_user.id %>" data_tutor="<%= @tutor.id%>" data-behavior="message_speaker">
+      <button type="submit" id="message_button">送信</button>
   </div>
-<%= render "shared/second-footer" %>
-
+<%= render "shared/footer" %>

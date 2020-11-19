@@ -33,7 +33,7 @@
             </tbody>
           </table>
           <div class="register-btn">
-            <%= link_to "質問する", message_path, class: "register-red-btn" %>
+            <%= link_to "質問する", tutor_user_message_path(@tutor.id,current_user.id), class: "register-red-btn" %>
           </div>
         </div>
     </div>

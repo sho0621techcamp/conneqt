@@ -8,6 +8,6 @@ class MessageChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Message.create! content: data['message']
+    Message.create! content: data['message'], user_id: data['user_id'], tutor_id: data['tutor_id']
   end
 end

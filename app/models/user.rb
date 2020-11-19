@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :tag_users
   has_many :tags, through: :tag_users
+  has_many :messages
 end

@@ -1,6 +1,7 @@
+import { data } from "jquery";
 import consumer from "./consumer"
 
-consumer.subscriptions.create("MessageChannel", {
+const appMessage = consumer.subscriptions.create("MessageChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
   },
@@ -10,10 +11,25 @@ consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
-    const html = `<p>${data.content.content}</p>`
     const messages = document.getElementById('messages');
-    const newMessage = document.getElementById('message_text');
-    messages.insertAdjacentHTML('afterBegin', html);
-    newMessage.value='';
+    messages.insertAdjacentHTML('beforeEnd', data['message']);
+  },
+
+  speak: function(message, data_user, data_tutor) {
+    return this.perform('speak', {message: message, user_id: data_user, tutor_id: data_tutor});
   }
 });
+window.addEventListener("DOMContentLoaded", function() {
+  const input = document.getElementById("message_input")
+  if (input != "") {
+    const data_user = input.getAttribute("data_user")
+    const data_tutor =  input.getAttribute("data_tutor")
+    const button = document.getElementById("message_button")
+    button.addEventListener("click", function(e) {
+      const content = input.value
+        appMessage.speak(content, data_user, data_tutor);
+        input.value = '';
+        e.preventDefault();
+    })
+  }
+})
