@@ -1,9 +1,4 @@
 class MessagesController < ApplicationController
-  
-  def new
-    @messages = Message.all
-    @message = Message.new
-  end
 
   def create
     @message = Message.new(message_params)
@@ -14,11 +9,13 @@ class MessagesController < ApplicationController
 
   def show
     @messages = Message.all
+    @tutor = Tutor.find(params[:id])
+    @user = current_user.id
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:content).merge(user_id: current_user.id, tutor_id: current_tutor.id)
+    params.require(:message).permit(:content, :tutor_id).merge(user_id: current_user.id)
   end
 end

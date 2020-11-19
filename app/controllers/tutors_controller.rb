@@ -9,6 +9,8 @@ class TutorsController < ApplicationController
 
   def show
     @tutor = Tutor.find(params[:id])
+    @message = Message.new
+    @messages = @tutor.messages
   end
 
   def create
@@ -18,6 +20,10 @@ class TutorsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @tutor = Tutor.find(params[:id])
   end
 
   private
