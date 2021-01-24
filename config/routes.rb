@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   post    '/login',   to: 'sessions#create'
   delete '/logout',   to: 'sessions#destroy'
   root to: 'tutors#index'
-  resources :tutors do
-    resources :users do
-      resources :messages, only: [:show, :create]
-    end
+  resources :tutors
+  resources :rooms do
+    resources :messages, only: [:show, :create]
   end
 end

@@ -5,4 +5,5 @@ class Tutor < ApplicationRecord
   has_many :tags, through: :tag_tutors
   has_many :star_tutors
   has_many :messages
+  has_many :rooms
 end

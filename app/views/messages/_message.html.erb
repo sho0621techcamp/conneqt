@@ -1,3 +1,11 @@
-<div class="message">
-  <p><%= current_user.nickname %>:<%= message.content %></p>
+<div class="message-chat">
+  <div class="message-user">
+    <%= image_tag current_user.image.variant(resize: '100x100'), class:"user-image" %>
+    <p class="user-name"><%= current_user.nickname %></p>
+  </div>
+  <div class="message-area">
+    <div class="message">
+      <p><%= message.content %></p>
+    </div>
+  </div>
 </div>

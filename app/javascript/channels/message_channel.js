@@ -19,7 +19,7 @@ const appMessage = consumer.subscriptions.create("MessageChannel", {
     return this.perform('speak', {message: message, user_id: data_user, tutor_id: data_tutor});
   }
 });
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
   const input = document.getElementById("message_input")
   if (input != "") {
     const data_user = input.getAttribute("data_user")

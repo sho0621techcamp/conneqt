@@ -3,10 +3,10 @@
 <div class="main">
   <div class="inner">
     <div class="tutor__wrapper">
-      <h2 class="page-heading text-center mb-5"><%= "#{@tutor.tutor_name} さん" %></h2>
+      <h2 class="page-heading text-center mt-5 mb-5"><%= "#{@tutor.tutor_name}さん" %></h2>
         <div class="container">
-          <div class="text-center">
-            <%= image_tag @tutor.image %>
+          <div class="tutor-image text-center">
+            <%= image_tag @tutor.image.variant(resize:'400x400') %>
           </div>
           <table class="table mt-5"> 
             <tbody>
@@ -22,7 +22,7 @@
                 <th class="table__col1">得意な言語</th>
                 <td class="table__col2">
                   <% @tutor.tags.each do |tag| %>
-                    <div class="badge badge-primary badge-font-size-20px mr-4" id="tag-badge"><%= "#""#{tag.name}" %></div>
+                    <div class="badge badge-light mr-4" id="tag-badge">#<%= tag.name %></div>
                   <% end %>  
                 </td>
               </tr>
@@ -32,8 +32,10 @@
               </tr>
             </tbody>
           </table>
-          <div class="register-btn">
-            <%= link_to "質問する", tutor_user_message_path(@tutor.id,current_user.id), class: "register-red-btn" %>
+          <div class="question-btn">
+              <button class="btn btn-danger">
+                <%= link_to "質問する", room_path, class: "red-btn" %>
+              </button>
           </div>
         </div>
     </div>

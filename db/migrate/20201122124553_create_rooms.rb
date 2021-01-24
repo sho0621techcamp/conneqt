@@ -1,7 +1,7 @@
-class CreateMessages < ActiveRecord::Migration[6.0]
+class CreateRooms < ActiveRecord::Migration[6.0]
   def change
-    create_table :messages do |t|
-      t.text :content, null: false
+    create_table :rooms do |t|
+      t.references :message, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
       t.references :tutor, null: false, foreign_key: true
       t.timestamps

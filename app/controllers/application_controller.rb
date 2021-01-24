@@ -19,4 +19,5 @@ class ApplicationController < ActionController::Base
     renderer = self.renderer.new('warden' => proxy)
     renderer.render(*args)
   end
+
 end

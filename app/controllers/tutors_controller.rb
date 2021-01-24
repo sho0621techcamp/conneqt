@@ -9,8 +9,7 @@ class TutorsController < ApplicationController
 
   def show
     @tutor = Tutor.find(params[:id])
-    @message = Message.new
-    @messages = @tutor.messages
+    @user = User.find(params[:id])
   end
 
   def create

@@ -1,0 +1,31 @@
+.message-chat {
+  display: flex;
+}
+
+.message-user {
+  float: left;
+}
+.user-image {
+  border-radius: 90px;
+  height: 90px;
+  width: 90px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.user-name{
+  margin-top: 5px;
+  margin-left: 45px;
+}
+
+.message-area {
+  width: 100%;
+  float: right;
+}
+.message {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-top: 40px;
+  padding: 16px 16px 0 16px;
+}

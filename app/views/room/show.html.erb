@@ -1,0 +1,25 @@
+<%= render "shared/header" %>
+  <div class="main-container">
+    <div class="message-page">
+      <div class="message-header">
+        <div class="text-center">
+          <%=image_tag @tutor.image.variant(resize:'100x100'), class:"tutor-icon"%>
+        </div>
+        <div class="tutor-name">
+          <%= @tutor.tutor_name %>
+        </div>
+      </div>
+      <div class="message-content">
+        <div id ="messages">
+          <% if current_user.id == @message.user_id %>
+            <%= render @messages %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="message-form">
+      <textarea type="text" placeholder="質問したいこと入力してください" class="message-input" id="message_input" data_user="<%= current_user.id %>" data_tutor="<%= @tutor.id%>" data-behavior="message_speaker"></textarea>
+      <button type="submit" class="submit-btn" id="message_button">送信</button>
+    </div> 
+  </div>
+<%= render "shared/footer" %>

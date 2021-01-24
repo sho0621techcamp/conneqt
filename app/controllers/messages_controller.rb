@@ -8,14 +8,16 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @messages = Message.all
+    @messages = Message.includes(:user, :tutor)
+    # @message = Message.find(params[:id])
     @tutor = Tutor.find(params[:id])
-    @user = current_user.id
+    @user = User.find(params[:id])
+    @message = Message.create
   end
 
   private
 
   def message_params
-    params.require(:message).permit(:content, :tutor_id).merge(user_id: current_user.id)
+    params.require(:message).permit(:content, :user_id, :tutor_id, :image, :room_id).merge(user_id: current_user.id, tutor_id: current_tutor.id)
   end
 end

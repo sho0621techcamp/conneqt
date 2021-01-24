@@ -4,11 +4,11 @@
     <title>Conneqt</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application','data-turbolinks-track': 'load' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'load' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'load' %>
+    <%= stylesheet_link_tag 'application','data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script>
-    $(window).ready(function () {
+    $(document).ready(function () {
       $(".js-searchable").select2({
         multiple: true,
         allowclear: true,
